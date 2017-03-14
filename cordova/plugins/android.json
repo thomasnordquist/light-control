@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.example.hello": {
+            "PACKAGE_NAME": "de.t7n.lightPicker"
+        },
+        "cordova-plugin-navigationbar": {
+            "PACKAGE_NAME": "de.t7n.lightPicker"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "de.t7n.lightPicker"
+        }
+    },
+    "dependent_plugins": {}
+}

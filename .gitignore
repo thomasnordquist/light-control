@@ -1,0 +1,23 @@
+# Mac
+.DS_Store
+
+# Node
+npm-debug.log
+node_modules
+
+# Cordova
+
+/cordova/www/*
+
+## Android
+/cordova/platforms
+
+## iOS
+/cordova/platforms/ios/build/
+/cordova/platforms/ios/CordovaLib/build/
+/cordova/platforms/ios/www
+/cordova/platforms/ios/MyPace/config.xml
+/cordova/platforms/ios/.staging
+
+## Emulator logs
+/cordova/platforms/ios/cordova/console.log

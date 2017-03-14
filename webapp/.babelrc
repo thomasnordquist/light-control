@@ -1,0 +1,16 @@
+{
+  "env": {
+    "development": {
+      "presets": ["react-hmre"],
+      "plugins": [
+          "transform-react-jsx"
+      ]
+    },
+    "production": {
+      "plugins": [
+          "transform-react-jsx"
+      ]
+    }
+  },
+  "presets": ["es2015"]
+}
