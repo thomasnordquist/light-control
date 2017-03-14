@@ -69,7 +69,8 @@
     "start": "cross-env NODE_ENV=development node server.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress --optimize-minimize",
     "serve": "cross-env NODE_ENV=production node server.prod.js",
-    "android": "npm run build; cp -R build/* ../cordova/www/; cd ../cordova; sed -i -e 's:</body>:<script type=\"text/javascript\" src=\"cordova.js\"></script></body>:g' www/index.html; cordova run android; cd -"
+    "copy-to-cordova": "cp -R build/* ../cordova/www/; cd ../cordova; sed -i -e 's:</body>:<script type=\"text/javascript\" src=\"cordova.js\"></script></body>:g' www/index.html;",
+    "android": "npm run build; npm run copy-to-cordova; cd ../cordova; cordova run android; cd -"
   },
   "author": "Max Stoiber",
   "license": "MIT"
