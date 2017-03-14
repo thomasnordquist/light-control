@@ -1,4 +1,4 @@
-node("docker") {
+node {
   checkout scm
   def app = docker.image('thomasnordquist/docker-cordova-build-environment')
   
