@@ -1,4 +1,5 @@
 node {
+  deleteDir()
   checkout scm
   def app = docker.image('thomasnordquist/docker-cordova-build-environment')
   
@@ -28,4 +29,6 @@ node {
     }
   }
 
+  archive (includes: '/cordova/platforms/android/build/outputs/apk/*.apk')
+  deleteDir()
 }
