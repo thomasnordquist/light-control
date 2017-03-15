@@ -13,15 +13,15 @@ node {
 
     dir('webapp') {
       app.inside {
-        sh "npm run clean || echo WebApp clean failed"
+        sh "yarn run clean || echo WebApp clean failed"
       }
     }
   }
   
-  stage('npm install') {
+  stage('yarn install') {
     dir('webapp') {
       app.inside {
-        sh "npm install"
+        sh "yarn install"
       }
     }
   }
@@ -29,8 +29,8 @@ node {
   stage('npm run build') {
     dir('webapp') {
       app.inside {
-        sh "npm run build"
-        sh "npm run copy-to-cordova"
+        sh "yarn run build"
+        sh "yarn run copy-to-cordova"
       }
     }
   }
