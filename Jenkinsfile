@@ -1,27 +1,33 @@
 node {
+  checkout scm
   def workspace = pwd()
-  def cache = "${workspace}/cache"
-
-  stage('prepare') {
-    sh "mkdir -p ${cache}"
-    dir('build') {
-      deleteDir()
-      checkout scm
-    }
-  }
 
   def app = docker.image('thomasnordquist/docker-cordova-build-environment')
+
+  stage('clean') {
+    dir('cordova') {
+      app.inside {
+        sh "cordova clean"
+      }
+    }
+
+    dir('webapp') {
+      app.inside {
+        sh "npm run clean"
+      }
+    }
+  }
   
   stage('npm install') {
-    dir('build/webapp') {
-      app.inside("-v ${cache}:/home/build") {
+    dir('webapp') {
+      app.inside {
         sh "npm install"
       }
     }
   }
 
   stage('npm run build') {
-    dir('build/webapp') {
+    dir('webapp') {
       app.inside {
         sh "npm run build"
         sh "npm run copy-to-cordova"
@@ -31,9 +37,9 @@ node {
 
   stage('cordova build') {
     dir('build/cordova') {
-      app.inside("-v ${cache}:/home/build") {
-        sh "cordova platform add android"
-	    sh "cordova build"
+      app.inside {
+        sh "cordova platform add android || echo Platform could not be added"
+        sh "cordova build"
       }
     }
   }
