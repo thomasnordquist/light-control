@@ -7,13 +7,13 @@ node {
   stage('clean') {
     dir('cordova') {
       app.inside {
-        sh "cordova clean"
+        sh "cordova clean || echo Cordova clean failed"
       }
     }
 
     dir('webapp') {
       app.inside {
-        sh "npm run clean"
+        sh "npm run clean || echo WebApp clean failed"
       }
     }
   }
