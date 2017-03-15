@@ -36,7 +36,7 @@ node {
   }
 
   stage('cordova build') {
-    dir('build/cordova') {
+    dir('cordova') {
       app.inside {
         sh "cordova platform add android || echo Platform could not be added"
         sh "cordova build"
