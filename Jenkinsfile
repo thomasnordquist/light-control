@@ -43,6 +43,5 @@ node {
       }
     }
   }
-
-  archive (includes: '/cordova/platforms/android/build/outputs/apk/*.apk')
+  archiveArtifacts 'cordova/platforms/android/build/outputs/apk/*.apk'
 }
