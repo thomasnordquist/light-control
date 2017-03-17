@@ -26,7 +26,7 @@ node {
     }
   }
 
-  stage('wenpack') {
+  stage('webpack') {
     dir('webapp') {
       app.inside {
         sh "yarn run build"
